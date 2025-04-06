@@ -59,10 +59,13 @@ options = options.sort(() => Math.random() - 0.5);
     });
   }
 
-  function skipWord() {
-    terms = terms.filter(t => t !== current);
-    showWord();
-  }
+function skipWord() {
+  const skipped = current;
+  terms = terms.filter(t => t !== skipped);
+  current = null;
+  showWord();
+}
+
 
   document.getElementById("skip").onclick = skipWord;
 
