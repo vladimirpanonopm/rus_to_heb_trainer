@@ -7,8 +7,11 @@ body {
 
 /* Общий стиль для блока со словом */
 #word {
+  font-size: 2em;
+  font-weight: bold;
   margin-bottom: 15px;
 }
+
 
 /* Только для иврита — большой шрифт и правильное направление */
 #word[dir="rtl"] {
