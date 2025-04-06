@@ -6,7 +6,7 @@ body {
   background-color: #f0f5fa;
 }
 #word[dir="rtl"] {
-  font-size: 3.0em;
+  font-size: 6.0em;
   font-weight: bold;
   direction: rtl;
   unicode-bidi: isolate;
@@ -23,9 +23,7 @@ body {
   direction: rtl;
   unicode-bidi: isolate;
 }
-#word {
-  font-weight: bold;
-}
+
 .option {
   display: block;
   margin: 10px auto;
