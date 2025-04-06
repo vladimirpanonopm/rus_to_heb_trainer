@@ -5,6 +5,14 @@ body {
   padding: 40px;
   background-color: #f0f5fa;
 }
+#word[dir="rtl"] {
+  font-size: 3.0em;
+  font-weight: bold;
+  direction: rtl;
+  unicode-bidi: isolate;
+  font-family: "Arial", "Noto Sans Hebrew", sans-serif;
+}
+
 #word {
   font-size: 2.5em;
   margin-bottom: 10px;
