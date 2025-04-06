@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Тренажёр: русский → иврит</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>🧠 Тренажёр: русский → иврит</h1>
+  <div id="word">Загрузка...</div>
+  <div id="options"></div>
+  <div id="feedback"></div>
+  <button id="skip">🗑 Не повторять это слово</button>
+
+<script>
+  let terms = [];
+  let current = null;
+
+  function showWord() {
+    if (terms.length === 0) {
+      document.getElementById("word").innerText = "🎉 Все слова изучены!";
+      document.getElementById("options").innerHTML = "";
+      document.getElementById("feedback").innerText = "";
+      return;
+    }
+
+    current = terms[Math.floor(Math.random() * terms.length)];
+    document.getElementById("word").innerText = current[1]; // русский
+
+    let shuffled = terms.slice().sort(() => Math.random() - 0.5);
+    let options = shuffled.slice(0, Math.min(5, terms.length));
+    if (!options.includes(current)) {
+      options[Math.floor(Math.random() * options.length)] = current;
+    }
+
+    options = options.sort(() => Math.random() - 0.5);
+
+    const optDiv = document.getElementById("options");
+    optDiv.innerHTML = "";
+    const feedback = document.getElementById("feedback");
+    feedback.innerText = "";
+
+    options.forEach(opt => {
+      const btn = document.createElement("button");
+      btn.className = "option";
+      btn.innerText = opt[0]; // иврит
+      btn.onclick = () => {
+        if (opt === current) {
+          feedback.innerText = "✔ Верно";
+          feedback.style.color = "green";
+        } else {
+          feedback.innerText = "❌ Неверно. Правильный ответ: " + current[0];
+          feedback.style.color = "red";
+        }
+        setTimeout(showWord, 1200);
+      };
+      optDiv.appendChild(btn);
+    });
+  }
+
+  function skipWord() {
+    terms = terms.filter(t => t !== current);
+    showWord();
+  }
+
+  document.getElementById("skip").onclick = skipWord;
+
+  fetch("terms.json")
+    .then(res => res.json())
+    .then(data => {
+      terms = data;
+      showWord();
+    });
+</script>
+</body>
+</html>
