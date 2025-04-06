@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -27,12 +28,10 @@
     current = terms[Math.floor(Math.random() * terms.length)];
     document.getElementById("word").innerText = current[1]; // русский
 
-   let other = terms.filter(t => t !== current);
-let shuffled = other.sort(() => Math.random() - 0.5);
-let options = shuffled.slice(0, Math.min(4, other.length));
-options.push(current);
-options = options.sort(() => Math.random() - 0.5);
-
+    let other = terms.filter(t => t !== current);
+    let shuffled = other.sort(() => Math.random() - 0.5);
+    let options = shuffled.slice(0, Math.min(4, other.length));
+    options.push(current);
     options = options.sort(() => Math.random() - 0.5);
 
     const optDiv = document.getElementById("options");
@@ -44,7 +43,7 @@ options = options.sort(() => Math.random() - 0.5);
       const btn = document.createElement("button");
       btn.className = "option";
       btn.innerText = opt[0]; // иврит
-      btn.setAttribute("dir", "rtl"); // добавил я
+      btn.setAttribute("dir", "rtl");
       btn.onclick = () => {
         if (opt === current) {
           feedback.innerText = "✔ Верно";
@@ -59,13 +58,12 @@ options = options.sort(() => Math.random() - 0.5);
     });
   }
 
-function skipWord() {
-  const skipped = current;
-  terms = terms.filter(t => t !== skipped);
-  current = null;
-  showWord();
-}
-
+  function skipWord() {
+    const skipped = current;
+    terms = terms.filter(t => t !== skipped);
+    current = null;
+    showWord();
+  }
 
   document.getElementById("skip").onclick = skipWord;
 
