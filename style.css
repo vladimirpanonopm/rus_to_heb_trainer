@@ -30,6 +30,12 @@ body {
   background-color: #dbeeff;
   width: 60%;
 }
+.option[dir="rtl"] {
+  font-size: 1.5em;
+  font-weight: bold;
+  font-family: "Arial", "Noto Sans Hebrew", sans-serif;
+}
+
 
 #skip {
   margin-top: 20px;
