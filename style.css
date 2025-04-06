@@ -9,7 +9,15 @@ body {
   font-size: 2.5em;
   margin-bottom: 10px;
 }
-
+#word {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  direction: rtl;
+  unicode-bidi: isolate;
+}
+#word {
+  font-weight: bold;
+}
 .option {
   display: block;
   margin: 10px auto;
