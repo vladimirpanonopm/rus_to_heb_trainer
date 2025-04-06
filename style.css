@@ -1,18 +1,23 @@
-
 body {
   font-family: sans-serif;
   text-align: center;
   padding: 40px;
   background-color: #f0f5fa;
 }
+
+/* Общий стиль для блока со словом */
+#word {
+  margin-bottom: 10px;
+}
+
+/* Только для иврита — большой шрифт и правильное направление */
 #word[dir="rtl"] {
-  font-size: 6.0em;
+  font-size: 6em;
   font-weight: bold;
   direction: rtl;
   unicode-bidi: isolate;
   font-family: "Arial", "Noto Sans Hebrew", sans-serif;
 }
-
 
 .option {
   display: block;
@@ -25,11 +30,13 @@ body {
   background-color: #dbeeff;
   width: 60%;
 }
+
 #skip {
   margin-top: 20px;
   font-size: 0.9em;
   background-color: #ffe0e0;
 }
+
 #feedback {
   margin-top: 15px;
   font-weight: bold;
