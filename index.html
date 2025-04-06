@@ -27,11 +27,11 @@
     current = terms[Math.floor(Math.random() * terms.length)];
     document.getElementById("word").innerText = current[1]; // русский
 
-    let shuffled = terms.slice().sort(() => Math.random() - 0.5);
-    let options = shuffled.slice(0, Math.min(5, terms.length));
-    if (!options.includes(current)) {
-      options[Math.floor(Math.random() * options.length)] = current;
-    }
+   let other = terms.filter(t => t !== current);
+let shuffled = other.sort(() => Math.random() - 0.5);
+let options = shuffled.slice(0, Math.min(4, other.length));
+options.push(current);
+options = options.sort(() => Math.random() - 0.5);
 
     options = options.sort(() => Math.random() - 0.5);
 
