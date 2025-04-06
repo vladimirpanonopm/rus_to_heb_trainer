@@ -26,7 +26,7 @@
     }
 
     current = terms[Math.floor(Math.random() * terms.length)];
-    document.getElementById("word").innerText = current[1]; // русский
+    document.getElementById("word").innerText = current[0]; // русский
 
     let other = terms.filter(t => t !== current);
     let shuffled = other.sort(() => Math.random() - 0.5);
@@ -42,7 +42,7 @@
     options.forEach(opt => {
       const btn = document.createElement("button");
       btn.className = "option";
-      btn.innerText = opt[0]; // иврит
+      btn.innerText = opt[1]; // иврит
       btn.setAttribute("dir", "rtl");
       btn.onclick = () => {
         if (opt === current) {
